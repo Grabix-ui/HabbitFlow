@@ -21,8 +21,8 @@ const initFirebase = () => {
     
     // Default placeholder if nothing is stored
     const placeholder = {
-        apiKey: "API_KEY_TU_WKLEJ",
-        projectId: "placeholder"
+        apiKey: "AIzaSyCDkNvfJzZ60KiXGiGJbBQnjRePvQxqX-0",
+        projectId: "aplikacja-d9da8"
     };
 
     const finalConfig = config || placeholder;
@@ -41,7 +41,7 @@ export const db = getFirestore(app);
 
 export const isConfigured = () => {
     const config = getStoredConfig();
-    return !!(config && config.apiKey && config.apiKey !== "API_KEY_TU_WKLEJ");
+    return !!(config && config.apiKey && config.apiKey !== "AIzaSyCDkNvfJzZ60KiXGiGJbBQnjRePvQxqX-0");
 };
 
 export const saveConfig = (config: object) => {
