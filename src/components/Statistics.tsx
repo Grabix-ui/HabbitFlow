@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from 'react';
-import { Habit, DailyLog, ChartDataPoint } from '../types';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { TrendingUp, Award, CalendarCheck } from 'lucide-react';
 import { useSettings } from '../contexts/SettingsContext';
+import type { Habit, DailyLog, ChartDataPoint, AccentColor } from '../types';
 
 interface StatisticsProps {
   habits: Habit[];
@@ -17,10 +17,31 @@ const RANGES = [
   { label: '6M', days: 180 },
   { label: '1Y', days: 365 },
 ];
+const ACCENT_HEX: Record<AccentColor, string> = {
+  indigo: '#6366f1',
+  emerald: '#10b981',
+  rose: '#f43f5e',
+  amber: '#f59e0b',
+  sky: '#0ea5e9',
+  violet: '#8b5cf6',
+};
+
+const ACCENT_DARK_HEX: Record<AccentColor, string> = {
+  indigo: '#4f46e5',
+  emerald: '#059669',
+  rose: '#e11d48',
+  amber: '#d97706',
+  sky: '#0284c7',
+  violet: '#7c3aed',
+};
 
 export const Statistics: React.FC<StatisticsProps> = ({ habits, logs }) => {
-  const { t, language } = useSettings();
+  const { t, language, accentColor } = useSettings();
   const [selectedRange, setSelectedRange] = useState(14);
+
+  
+  const accent = ACCENT_HEX[accentColor] ?? ACCENT_HEX.indigo;
+  const accentDark = ACCENT_DARK_HEX[accentColor] ?? ACCENT_DARK_HEX.indigo;
 
   const data = useMemo(() => {
     const result: ChartDataPoint[] = [];
@@ -115,8 +136,8 @@ export const Statistics: React.FC<StatisticsProps> = ({ habits, logs }) => {
             <AreaChart data={data} margin={{ top: 10, right: 0, left: 0, bottom: 0 }}>
                 <defs>
                 <linearGradient id="colorRate" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#6366f1" stopOpacity={0.2}/>
-                    <stop offset="95%" stopColor="#6366f1" stopOpacity={0}/>
+                    <stop offset="5%" stopColor={accent} stopOpacity={0.2}/>
+                    <stop offset="95%" stopColor={accent} stopOpacity={0}/>
                 </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" className="dark:stroke-zinc-800" />
@@ -141,7 +162,7 @@ export const Statistics: React.FC<StatisticsProps> = ({ habits, logs }) => {
                 <Area 
                     type="monotone" 
                     dataKey="completionRate" 
-                    stroke="#6366f1" 
+                    stroke={accent}
                     strokeWidth={3}
                     fillOpacity={1} 
                     fill="url(#colorRate)" 

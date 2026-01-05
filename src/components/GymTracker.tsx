@@ -3,7 +3,26 @@ import { Exercise, WorkoutLog, DayOfWeek, WorkoutSet, BodyMeasurement } from '..
 import { saveExercise, deleteExercise, saveWorkoutLog, saveMeasurement } from '../services/storage';
 import { Plus, Dumbbell, ChevronDown, ChevronUp, Trash2, Save, X, CalendarDays, CheckCircle2, Trophy, Activity, Ruler, LineChart, ChevronLeft, ChevronRight, RotateCcw, Settings, Edit3, ClipboardList, TrendingUp, Eye, EyeOff } from 'lucide-react';
 import { AreaChart, Area, LineChart as ReLineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend } from 'recharts';
+import type { AccentColor } from '../types';
 import { useSettings } from '../contexts/SettingsContext';
+
+const ACCENT_HEX: Record<AccentColor, string> = {
+  indigo: '#6366f1',
+  emerald: '#10b981',
+  rose: '#f43f5e',
+  amber: '#f59e0b',
+  sky: '#0ea5e9',
+  violet: '#8b5cf6',
+};
+
+const ACCENT_DARK_HEX: Record<AccentColor, string> = {
+  indigo: '#4f46e5',
+  emerald: '#059669',
+  rose: '#e11d48',
+  amber: '#d97706',
+  sky: '#0284c7',
+  violet: '#7c3aed',
+};
 
 interface ExerciseCardProps {
   exercise: Exercise;
@@ -17,18 +36,21 @@ interface ExerciseCardProps {
   onShowStats: () => void;
 }
 
-const ExerciseCard: React.FC<ExerciseCardProps> = ({ 
-  exercise, 
-  date, 
-  workoutLogs, 
-  isExpanded, 
-  isEditingPlan, 
-  onToggleExpand, 
-  onDelete, 
-  onUpdate, 
-  onShowStats 
+const ExerciseCard: React.FC<ExerciseCardProps> = ({
+  exercise,
+  date,
+  workoutLogs,
+  isExpanded,
+  isEditingPlan,
+  onToggleExpand,
+  onDelete,
+  onUpdate,
+  onShowStats
 }) => {
-  const { t } = useSettings();
+  const { t, accentColor } = useSettings();
+  const accent = ACCENT_HEX[accentColor] ?? ACCENT_HEX.indigo;
+  const accentDark = ACCENT_DARK_HEX[accentColor] ?? ACCENT_DARK_HEX.indigo;
+
   const [weight, setWeight] = useState('');
   const [reps, setReps] = useState('');
 
@@ -214,7 +236,11 @@ const ExerciseStatsModal: React.FC<{
   workoutLogs: WorkoutLog[];
   onClose: () => void;
 }> = ({ exercise, workoutLogs, onClose }) => {
-    const { t, language } = useSettings();
+    const { t, language, accentColor } = useSettings();
+
+    const accent = ACCENT_HEX[accentColor] ?? ACCENT_HEX.indigo;
+    const accentDark = ACCENT_DARK_HEX[accentColor] ?? ACCENT_DARK_HEX.indigo;
+
     const data = useMemo(() => {
         return workoutLogs
             .filter(l => l.exerciseId === exercise.id && l.sets.length > 0)
@@ -246,15 +272,15 @@ const ExerciseStatsModal: React.FC<{
                                 <AreaChart data={data}>
                                     <defs>
                                         <linearGradient id="colorMax" x1="0" y1="0" x2="0" y2="1">
-                                            <stop offset="5%" stopColor="#6366f1" stopOpacity={0.2}/>
-                                            <stop offset="95%" stopColor="#6366f1" stopOpacity={0}/>
+                                            <stop offset="5%" stopColor={accent} stopOpacity={0.2}/>
+                                            <stop offset="95%"stopColor={accent} stopOpacity={0}/>
                                         </linearGradient>
                                     </defs>
                                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" className="dark:stroke-zinc-800" />
                                     <XAxis dataKey="date" tick={{fontSize: 10}} axisLine={false} tickLine={false} />
                                     <YAxis hide domain={['auto', 'auto']} />
                                     <Tooltip contentStyle={{borderRadius: '8px', fontSize: '12px'}} />
-                                    <Area type="monotone" dataKey="maxWeight" stroke="#6366f1" strokeWidth={3} fillOpacity={1} fill="url(#colorMax)" />
+                                    <Area type="monotone" dataKey="maxWeight" stroke={accent} strokeWidth={3} fillOpacity={1} fill="url(#colorMax)" />
                                 </AreaChart>
                             </ResponsiveContainer>
                             <p className="text-center text-xs text-zinc-400 mt-2">{t('progress_chart')} (Max Weight)</p>
@@ -306,7 +332,10 @@ interface GymTrackerProps {
 const DAYS: DayOfWeek[] = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 export const GymTracker: React.FC<GymTrackerProps> = ({ exercises, workoutLogs, measurements, onUpdate, initialExerciseId }) => {
-  const { t, language } = useSettings();
+  const { t, language, accentColor } = useSettings();
+  const accent = ACCENT_HEX[accentColor] ?? ACCENT_HEX.indigo;
+  const accentDark = ACCENT_DARK_HEX[accentColor] ?? ACCENT_DARK_HEX.indigo;
+
   const [activeTab, setActiveTab] = useState<'plan' | 'measurements'>('plan');
   
   // --- PLAN STATE ---
@@ -825,7 +854,7 @@ export const GymTracker: React.FC<GymTrackerProps> = ({ exercises, workoutLogs, 
                                 <Line 
                                     type="monotone" 
                                     dataKey="value" 
-                                    stroke="#6366f1" 
+                                    stroke={accent} 
                                     strokeWidth={3}
                                     dot={{ r: 4, fill: '#6366f1', strokeWidth: 0 }}
                                     activeDot={{ r: 6 }}
