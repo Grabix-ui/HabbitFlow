@@ -6,5 +6,5 @@ import react from '@vitejs/plugin-react';
 // zmień base na '/moj-projekt/'
 export default defineConfig({
   plugins: [react()],
-  base: './', 
+  base: './HabbitFlow', 
 });
