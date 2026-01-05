@@ -1,10 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // Ustawienie './' sprawia, że wszystkie ścieżki są relatywne
+  // Ustawienie './' sprawia, że ścieżki do zasobów (JS, CSS) są relatywne
   base: './',
   build: {
     outDir: 'dist',
