@@ -129,14 +129,6 @@ const App: React.FC = () => {
       window.location.reload();
   };
 
-  if (!configured) {
-      return (
-          <SettingsProvider>
-            <FirebaseSetup onComplete={handleConfigDone} />
-          </SettingsProvider>
-      );
-  }
-
   return (
     <SettingsProvider>
       <AuthProvider>
