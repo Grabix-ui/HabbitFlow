@@ -127,20 +127,16 @@ const App: React.FC = () => {
   const [configured, setConfigured] = useState(checkIsConfigured());
 
   const handleConfigDone = () => {
-      // Manual reload trigger to refresh Firebase singleton exports
-      window.location.reload();
+    window.location.reload();
   };
 
   return (
-  <SettingsProvider>
-    <div className="fixed top-2 left-2 z-[99999] rounded bg-white/90 px-2 py-1 text-xs text-black dark:bg-black/80 dark:text-white">
-      theme: {theme} | html.dark: {String(document.documentElement.classList.contains('dark'))}
-    </div>
-
-    <AuthProvider>
-      <MainAppContent />
-    </AuthProvider>
-  </SettingsProvider>
-);
+    <SettingsProvider>
+      <AuthProvider>
+        <MainAppContent />
+      </AuthProvider>
+    </SettingsProvider>
+  );
+};
 
 export default App;
