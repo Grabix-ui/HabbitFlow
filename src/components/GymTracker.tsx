@@ -347,7 +347,11 @@ export const GymTracker: React.FC<GymTrackerProps> = ({ exercises, workoutLogs, 
   const [measurementDate, setMeasurementDate] = useState(new Date().toISOString().split('T')[0]);
   const [measWeekOffset, setMeasWeekOffset] = useState(0); // Independent offset for measurements tab
   const [bodyStats, setBodyStats] = useState<Partial<BodyMeasurement>>({});
-  const [selectedMetric, setSelectedMetric] = useState<keyof BodyMeasurement>('weight');
+  /**
+   * FIX: Refine the type of selectedMetric to exclude non-numeric keys 'id' and 'date'.
+   * This ensures that m[selectedMetric] is always number | undefined.
+   */
+  const [selectedMetric, setSelectedMetric] = useState<Exclude<keyof BodyMeasurement, 'id' | 'date'>>('weight');
   const [isSavingMeasurements, setIsSavingMeasurements] = useState(false);
 
   // Effect to load existing measurements when date changes
@@ -458,11 +462,18 @@ export const GymTracker: React.FC<GymTrackerProps> = ({ exercises, workoutLogs, 
   const measurementChartData = useMemo(() => {
       return measurements
         .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-        .map(m => ({
-            date: new Date(m.date).toLocaleDateString(language === 'pl' ? 'pl-PL' : 'en-US', { month: 'short', day: 'numeric' }),
-            value: m[selectedMetric] || 0
-        }))
-        .filter(d => d.value > 0);
+        .map(m => {
+            const val = m[selectedMetric];
+            return {
+                date: new Date(m.date).toLocaleDateString(language === 'pl' ? 'pl-PL' : 'en-US', { month: 'short', day: 'numeric' }),
+                /**
+                 * FIX: Ensure value is explicitly cast to a number or 0 if undefined.
+                 * This prevents the "string | number" type mismatch during numeric comparison.
+                 */
+                value: typeof val === 'number' ? val : 0
+            };
+        })
+        .filter(d => (d.value as number) > 0);
   }, [measurements, selectedMetric, language]);
 
   return (
@@ -786,7 +797,10 @@ export const GymTracker: React.FC<GymTrackerProps> = ({ exercises, workoutLogs, 
                     </h3>
                     <select 
                         value={selectedMetric}
-                        onChange={(e) => setSelectedMetric(e.target.value as keyof BodyMeasurement)}
+                        /**
+                         * FIX: Cast e.target.value to explicitly match refined metric type.
+                         */
+                        onChange={(e) => setSelectedMetric(e.target.value as Exclude<keyof BodyMeasurement, 'id' | 'date'>)}
                         className="text-xs p-1 rounded border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200 outline-none"
                     >
                         <option value="weight">{t('weight')}</option>

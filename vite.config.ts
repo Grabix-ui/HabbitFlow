@@ -3,8 +3,8 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  // Ustawienie './' sprawia, że ścieżki do zasobów (JS, CSS) są relatywne
-  base: '/HabbitFlow/',
+  // Pozwala na poprawne działanie ścieżek na GitHub Pages
+  base: './',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

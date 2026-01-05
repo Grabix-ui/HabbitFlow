@@ -23,7 +23,7 @@ export const getHabitInsights = async (habits: Habit[], logs: DailyLog[], langPr
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     
     const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
+      model: 'gemini-2.0-flash',
       contents: `Here is my habit tracking data: ${JSON.stringify(context)}. Give me a quick insight or motivation based on my recent performance. ${langPrompt || ''}`,
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,
