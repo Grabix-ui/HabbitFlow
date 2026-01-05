@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>HabitFlow</title>
+    
+    <!-- Zapobieganie błędom 404 dla favicon -->
+    <link rel="icon" href="data:,">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       .pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
@@ -35,6 +39,7 @@
 </head>
 <body class="bg-zinc-50 dark:bg-black transition-colors duration-300">
     <div id="root"></div>
+    <!-- Vite automatycznie obsłuży ten plik i zamieni go na zbudowany JS -->
     <script type="module" src="/index.tsx"></script>
 </body>
 </html>
