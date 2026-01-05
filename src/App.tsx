@@ -74,7 +74,7 @@ const MainAppContent: React.FC = () => {
       bg-white dark:bg-black
       text-slate-700 dark:text-zinc-300">
       <div className="flex flex-col items-center gap-4">
-        <div className="w-8 h-8 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-8 h-8 border-4 accent-border border-t-transparent rounded-full animate-spin"></div>
         <p>Syncing...</p>
       </div>
     </div>

@@ -96,7 +96,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ habits, logs, exercises, w
             <h2 className="text-2xl font-bold text-zinc-800 dark:text-zinc-100 mt-1">{t('daily_goals')}</h2>
           </div>
           <div className="text-right">
-             <span className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">{progress}%</span>
+             <span className="text-3xl font-bold accent-text dark:text-indigo-400">{progress}%</span>
           </div>
         </div>
         <div className="w-full bg-zinc-100 dark:bg-zinc-800 rounded-full h-3 overflow-hidden">
@@ -121,7 +121,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ habits, logs, exercises, w
          ) : (
              <div className="animate-fade-in">
                  <div className="flex items-start gap-3">
-                    <Sparkles size={20} className="text-indigo-600 dark:text-indigo-400 mt-1 shrink-0" />
+                    <Sparkles size={20} className="accent-text dark:accent-text mt-1 shrink-0" />
                     <div>
                         <p className="text-indigo-900 dark:text-indigo-100 text-sm leading-relaxed">{insight}</p>
                         <button 
@@ -140,7 +140,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ habits, logs, exercises, w
       {todaysExercises.length > 0 && (
           <div className="space-y-3">
               <h3 className="font-bold text-zinc-800 dark:text-zinc-100 flex items-center gap-2">
-                  <Dumbbell size={20} className="text-indigo-600 dark:text-indigo-400"/> 
+                  <Dumbbell size={20} className="accent-text dark:accent-text"/> 
                   {t('todays_workout')}
               </h3>
               <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden transition-colors">

@@ -76,7 +76,7 @@ export const Statistics: React.FC<StatisticsProps> = ({ habits, logs }) => {
             <span className="text-xs text-zinc-500 dark:text-zinc-400">{t('todays_rate')}</span>
         </div>
         <div className="bg-white dark:bg-zinc-900 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-800 shadow-sm flex flex-col items-center justify-center text-center transition-colors">
-            <div className="w-10 h-10 bg-indigo-100 dark:bg-zinc-800 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center mb-2">
+            <div className="w-10 h-10 bg-indigo-100 dark:bg-zinc-800 accent-text dark:accent-text rounded-full flex items-center justify-center mb-2">
                 <Award size={20} />
             </div>
             <span className="text-2xl font-bold text-zinc-800 dark:text-zinc-100">{stats.totalCompleted}</span>
@@ -100,7 +100,7 @@ export const Statistics: React.FC<StatisticsProps> = ({ habits, logs }) => {
                         onClick={() => setSelectedRange(range.days)}
                         className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all whitespace-nowrap ${
                             selectedRange === range.days 
-                            ? 'bg-white dark:bg-zinc-700 text-indigo-600 dark:text-indigo-400 shadow-sm' 
+                            ? 'bg-white dark:bg-zinc-700 accent-text dark:accent-text shadow-sm' 
                             : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200'
                         }`}
                     >

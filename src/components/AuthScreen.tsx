@@ -38,7 +38,7 @@ export const AuthScreen: React.FC = () => {
         
         {/* Header / Logo */}
         <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-indigo-600 rounded-2xl mx-auto flex items-center justify-center shadow-[0_20px_60px_-15px_rgba(79,70,229,0.6)] dark:shadow-[0_20px_60px_-15px_rgba(79,70,229,0.5)] mb-6 transform transition-transform hover:scale-105">
+            <div className="w-16 h-16 accent-soft rounded-2xl mx-auto flex items-center justify-center shadow-[0_20px_60px_-15px_rgba(79,70,229,0.6)] dark:shadow-[0_20px_60px_-15px_rgba(79,70,229,0.5)] mb-6 transform transition-transform hover:scale-105">
                 <span className="text-3xl font-bold text-white">H</span>
             </div>
             <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-2">
@@ -143,7 +143,7 @@ export const AuthScreen: React.FC = () => {
                         setIsLogin(!isLogin);
                         setError('');
                     }}
-                    className="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline"
+                    className="text-sm font-medium accent-text dark:accent-text hover:underline"
                 >
                     {isLogin ? t('auth_switch_to_register') : t('auth_switch_to_login')}
                 </button>

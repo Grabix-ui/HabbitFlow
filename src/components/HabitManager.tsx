@@ -142,7 +142,7 @@ export const HabitManager: React.FC<HabitManagerProps> = ({ habits, onUpdate }) 
             <div className="flex items-center gap-1 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
               <button
                 onClick={() => handleEdit(habit)}
-                className="p-2 text-zinc-400 hover:text-indigo-600 dark:text-zinc-500 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-zinc-800 rounded-lg transition-colors"
+                className="p-2 text-zinc-400 hover:accent-text dark:text-zinc-500 dark:hover:accent-text hover:accent-soft dark:hover:bg-zinc-800 rounded-lg transition-colors"
                 title="Edit"
               >
                 <Edit2 size={18} />

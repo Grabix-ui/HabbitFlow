@@ -57,7 +57,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, activeView, onChangeVi
           <button
             onClick={() => onChangeView('dashboard')}
             className={`flex flex-col items-center gap-1 p-2 rounded-xl transition-all ${
-              activeView === 'dashboard' ? 'text-indigo-600 bg-indigo-50 dark:bg-zinc-900 dark:text-indigo-400' : 'text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300'
+              activeView === 'dashboard' ? 'accent-text bg-indigo-50 dark:bg-zinc-900 dark:accent-text' : 'text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300'
             }`}
           >
             <LayoutDashboard size={24} strokeWidth={activeView === 'dashboard' ? 2.5 : 2} />
@@ -67,7 +67,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, activeView, onChangeVi
           <button
             onClick={() => onChangeView('habits')}
             className={`flex flex-col items-center gap-1 p-2 rounded-xl transition-all ${
-              activeView === 'habits' ? 'text-indigo-600 bg-indigo-50 dark:bg-zinc-900 dark:text-indigo-400' : 'text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300'
+              activeView === 'habits' ? 'accent-text bg-indigo-50 dark:bg-zinc-900 dark:accent-text' : 'text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300'
             }`}
           >
             <ListTodo size={24} strokeWidth={activeView === 'habits' ? 2.5 : 2} />
@@ -77,7 +77,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, activeView, onChangeVi
           <button
             onClick={() => onChangeView('gym')}
             className={`flex flex-col items-center gap-1 p-2 rounded-xl transition-all ${
-              activeView === 'gym' ? 'text-indigo-600 bg-indigo-50 dark:bg-zinc-900 dark:text-indigo-400' : 'text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300'
+              activeView === 'gym' ? 'accent-text bg-indigo-50 dark:bg-zinc-900 dark:accent-text' : 'text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300'
             }`}
           >
             <Dumbbell size={24} strokeWidth={activeView === 'gym' ? 2.5 : 2} />
@@ -87,7 +87,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, activeView, onChangeVi
           <button
             onClick={() => onChangeView('stats')}
             className={`flex flex-col items-center gap-1 p-2 rounded-xl transition-all ${
-              activeView === 'stats' ? 'text-indigo-600 bg-indigo-50 dark:bg-zinc-900 dark:text-indigo-400' : 'text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300'
+              activeView === 'stats' ? 'accent-text bg-indigo-50 dark:bg-zinc-900 dark:accent-text' : 'text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300'
             }`}
           >
             <BarChart2 size={24} strokeWidth={activeView === 'stats' ? 2.5 : 2} />
@@ -114,7 +114,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, activeView, onChangeVi
                
                {/* Account Info */}
                <div className="bg-indigo-50 dark:bg-indigo-900/10 rounded-xl p-3 flex items-center gap-3 border border-indigo-100 dark:border-indigo-900/30">
-                   <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center font-bold">
+                   <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/30 accent-text dark:accent-text rounded-full flex items-center justify-center font-bold">
                        {user?.email?.[0].toUpperCase() || 'U'}
                    </div>
                    <div className="overflow-hidden">
