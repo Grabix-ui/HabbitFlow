@@ -70,15 +70,17 @@ const MainAppContent: React.FC = () => {
   };
 
   if (authLoading || (user && dataLoading)) {
-    return (
-        <div className="min-h-screen flex items-center justify-center bg-zinc-50 dark:bg-black text-slate-400 dark:text-zinc-500">
-            <div className="flex flex-col items-center gap-4">
-                <div className="w-8 h-8 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
-                <p>Syncing...</p>
-            </div>
-        </div>
-    );
-  }
+  return (
+    <div className="min-h-screen flex items-center justify-center
+      bg-white dark:bg-black
+      text-slate-700 dark:text-zinc-300">
+      <div className="flex flex-col items-center gap-4">
+        <div className="w-8 h-8 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+        <p>Syncing...</p>
+      </div>
+    </div>
+  );
+}
 
   if (!user) {
       return <AuthScreen />;
