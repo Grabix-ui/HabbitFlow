@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>HabitFlow</title>
-    
-    <!-- Pusty favicon zapobiegający błędowi 404 w konsoli -->
-    <link rel="icon" href="data:,">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      .pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
-      body { -webkit-tap-highlight-color: transparent; height: 100%; overflow-x: hidden; }
-      :root { color-scheme: light; }
-      .dark { color-scheme: dark; }
-      
-      ::-webkit-scrollbar { width: 6px; height: 6px; }
-      ::-webkit-scrollbar-track { background: transparent; }
-      ::-webkit-scrollbar-thumb { background-color: #d4d4d8; border-radius: 3px; }
-      .dark ::-webkit-scrollbar-thumb { background-color: #3f3f46; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>HabitFlow</title>
 
-<link rel="stylesheet" href="/src/main.tsx">
+  <link rel="icon" href="data:,">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
+    body { -webkit-tap-highlight-color: transparent; height: 100%; overflow-x: hidden; }
+    :root { color-scheme: light; }
+    .dark { color-scheme: dark; }
+
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background-color: #d4d4d8; border-radius: 3px; }
+    .dark ::-webkit-scrollbar-thumb { background-color: #3f3f46; }
+  </style>
 </head>
+
 <body class="bg-zinc-50 dark:bg-black transition-colors duration-300">
-    <div id="root"></div>
-    <!-- Vite automatycznie obsłuży ten plik i zamieni go na wersję produkcyjną .js -->
-    <script type="module" src="/src/main.tsx"></script>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>
