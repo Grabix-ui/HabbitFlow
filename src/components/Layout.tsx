@@ -30,11 +30,11 @@ export const Layout: React.FC<LayoutProps> = ({ children, activeView, onChangeVi
   };
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100 font-sans selection:bg-indigo-100 dark:selection:bg-indigo-900 selection:text-indigo-900 dark:selection:text-indigo-100 flex flex-col transition-colors duration-300">
+    <div className="min-h-screen bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100 font-sans selection:accent-soft dark:selection:accent-soft selection:accent-text dark:selection:accent-text flex flex-col transition-colors duration-300">
       <header className="sticky top-0 z-10 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
         <div className="max-w-3xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-indigo-200 dark:shadow-none shadow-lg transition-colors">
+            <div className="w-8 h-8 accent-bg rounded-lg flex items-center justify-center text-white font-bold text-lg accent-shadow dark:shadow-none shadow-lg transition-colors">
               H
             </div>
             <h1 className="text-xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">{t('app_name')}</h1>
@@ -113,8 +113,8 @@ export const Layout: React.FC<LayoutProps> = ({ children, activeView, onChangeVi
              <div className="p-5 space-y-6 max-h-[70vh] overflow-y-auto">
                
                {/* Account Info */}
-               <div className="bg-indigo-50 dark:bg-indigo-900/10 rounded-xl p-3 flex items-center gap-3 border border-indigo-100 dark:border-indigo-900/30">
-                   <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/30 accent-text dark:accent-text rounded-full flex items-center justify-center font-bold">
+               <div className="accent-soft rounded-xl p-3 flex items-center gap-3 border accent-border dark:border-indigo-900/30">
+                   <div className="w-10 h-10 accent-soft dark:bg-indigo-900/30 accent-text dark:accent-text rounded-full flex items-center justify-center font-bold">
                        {user?.email?.[0].toUpperCase() || 'U'}
                    </div>
                    <div className="overflow-hidden">
@@ -236,7 +236,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, activeView, onChangeVi
              <div className="p-4 bg-zinc-50 dark:bg-zinc-900/50 border-t border-zinc-100 dark:border-zinc-800">
                 <button 
                   onClick={() => setShowSettings(false)}
-                  className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-colors shadow-sm"
+                  className="w-full py-2.5 accent-bg hover:accent-bg-hover text-white font-semibold rounded-xl transition-colors accent-shadow"
                 >
                   {t('close')}
                 </button>

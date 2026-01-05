@@ -68,7 +68,7 @@ export const HabitManager: React.FC<HabitManagerProps> = ({ habits, onUpdate }) 
         {!isAdding && (
             <button
             onClick={() => setIsAdding(true)}
-            className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium transition-colors shadow-sm shadow-indigo-200 dark:shadow-none"
+            className="flex items-center gap-2 accent-bg hover:accent-bg-hover dark:accent-bg dark:hover:accent-bg text-white px-4 py-2 rounded-lg font-medium transition-colors shadow-sm accent-shadow dark:shadow-none"
             >
             <Plus size={18} />
             <span>{t('add_new')}</span>
@@ -117,7 +117,7 @@ export const HabitManager: React.FC<HabitManagerProps> = ({ habits, onUpdate }) 
               <button
                 type="submit"
                 disabled={saving}
-                className="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-medium rounded-lg shadow-md shadow-indigo-200 dark:shadow-none transition-colors flex items-center gap-2"
+                className="px-6 py-2 accent-bg hover:accent-bg-hover dark:accent-bg dark:hover:accent-bg text-white font-medium rounded-lg shadow-md accent-shadow dark:shadow-none transition-colors flex items-center gap-2"
               >
                 {saving && <Loader2 className="animate-spin" size={16} />}
                 {editingId ? t('save_changes') : t('create_habit')}
@@ -131,7 +131,7 @@ export const HabitManager: React.FC<HabitManagerProps> = ({ habits, onUpdate }) 
         {habits.map((habit) => (
           <div
             key={habit.id}
-            className="bg-white dark:bg-zinc-900 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 flex items-center justify-between group hover:border-indigo-200 dark:hover:border-indigo-800 hover:shadow-sm transition-all"
+            className="bg-white dark:bg-zinc-900 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 flex items-center justify-between group hover:accent-border dark:hover:accent-border hover:shadow-sm transition-all"
           >
             <div>
               <h3 className="font-semibold text-zinc-800 dark:text-zinc-100">{habit.title}</h3>

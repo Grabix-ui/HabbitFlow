@@ -65,7 +65,7 @@ export const FirebaseSetup: React.FC<FirebaseSetupProps> = ({ onComplete }) => {
                     </div>
                     <button 
                         onClick={() => onComplete()}
-                        className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-2xl shadow-lg shadow-indigo-200 dark:shadow-none transition-all flex items-center justify-center gap-2 group"
+                        className="w-full py-4 accent-bg hover:accent-bg-hover text-white font-bold rounded-2xl shadow-lg accent-shadow dark:shadow-none transition-all flex items-center justify-center gap-2 group"
                     >
                         Uruchom Aplikację
                         <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -79,7 +79,7 @@ export const FirebaseSetup: React.FC<FirebaseSetupProps> = ({ onComplete }) => {
         <div className="min-h-screen bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100 flex items-center justify-center p-4">
             <div className="w-full max-w-2xl bg-white dark:bg-zinc-900 rounded-3xl shadow-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden animate-in fade-in duration-500">
                 <div className="p-8 border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 flex items-center gap-4">
-                    <div className="w-12 h-12 bg-indigo-600 text-white rounded-2xl flex items-center justify-center shadow-lg shadow-indigo-200 dark:shadow-none">
+                    <div className="w-12 h-12 accent-bg text-white rounded-2xl flex items-center justify-center shadow-lg accent-shadow dark:shadow-none">
                         <Code size={24} />
                     </div>
                     <div>
@@ -102,7 +102,7 @@ export const FirebaseSetup: React.FC<FirebaseSetupProps> = ({ onComplete }) => {
                             value={json}
                             onChange={(e) => setJson(e.target.value)}
                             placeholder={`const firebaseConfig = {\n  apiKey: "...",\n  projectId: "...",\n  ...\n};`}
-                            className="w-full h-56 bg-zinc-50 dark:bg-black border-2 border-zinc-100 dark:border-zinc-800 rounded-2xl p-5 font-mono text-[12px] focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all resize-none shadow-inner"
+                            className="w-full h-56 bg-zinc-50 dark:bg-black border-2 border-zinc-100 dark:border-zinc-800 rounded-2xl p-5 font-mono text-[12px] focus:border-accent-ring focus:ring-4 focus:accent-ring/10 outline-none transition-all resize-none shadow-inner"
                         />
                         {error && (
                             <div className="bg-rose-50 dark:bg-rose-900/20 text-rose-600 dark:text-rose-400 p-3 rounded-xl text-sm font-medium flex items-center gap-2 animate-in slide-in-from-left-2">
@@ -113,7 +113,7 @@ export const FirebaseSetup: React.FC<FirebaseSetupProps> = ({ onComplete }) => {
 
                     <button 
                         onClick={handleSave}
-                        className="w-full py-4.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-2xl shadow-xl shadow-indigo-100 dark:shadow-none transition-all flex items-center justify-center gap-3 active:scale-[0.98]"
+                        className="w-full py-4.5 accent-bg hover:accent-bg-hover text-white font-bold rounded-2xl shadow-xl accent-shadow dark:shadow-none transition-all flex items-center justify-center gap-3 active:scale-[0.98]"
                     >
                         <Save size={20} />
                         Zapisz i kontynuuj

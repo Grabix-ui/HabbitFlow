@@ -82,7 +82,7 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
   const isFuture = new Date(date) > new Date();
 
   return (
-    <div className={`bg-white dark:bg-zinc-900 rounded-xl border transition-all duration-300 overflow-hidden ${isExpanded ? 'border-indigo-500 shadow-md' : 'border-zinc-200 dark:border-zinc-800'}`}>
+    <div className={`bg-white dark:bg-zinc-900 rounded-xl border transition-all duration-300 overflow-hidden ${isExpanded ? 'accent-border shadow-md' : 'border-zinc-200 dark:border-zinc-800'}`}>
         {/* Header */}
         <div 
             onClick={onToggleExpand}
@@ -122,7 +122,7 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
                 {!isEditingPlan && (
                     <button
                         onClick={(e) => { e.stopPropagation(); onShowStats(); }}
-                        className="p-2 text-zinc-400 hover:text-indigo-500 hover:bg-indigo-50 dark:hover:bg-zinc-800 rounded-lg transition-colors"
+                        className="p-2 text-zinc-400 hover:accent-text hover:accent-soft dark:hover:bg-zinc-800 rounded-lg transition-colors"
                     >
                         <Activity size={18} />
                     </button>
@@ -139,7 +139,7 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
                 {/* Previous Performance Hint */}
                 {lastLog && (
                     <div className="mb-4 text-xs text-zinc-500 flex items-center gap-2 bg-white dark:bg-zinc-800 p-2 rounded-lg border border-zinc-100 dark:border-zinc-700">
-                        <ClipboardList size={14} className="text-indigo-500"/>
+                        <ClipboardList size={14} className="accent-text"/>
                         <span>{t('last_session')}: {lastLog.sets.map(s => `${s.weight}x${s.reps}`).join(', ')}</span>
                     </div>
                 )}
@@ -176,7 +176,7 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
                                 step="0.5"
                                 value={weight}
                                 onChange={e => setWeight(e.target.value)}
-                                className="w-full px-3 py-2 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-center font-mono focus:ring-2 focus:ring-indigo-500 outline-none"
+                                className="w-full px-3 py-2 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-center font-mono focus:ring-2 focus:accent-ring outline-none"
                                 placeholder="0"
                             />
                         </div>
@@ -186,14 +186,14 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
                                 type="number"
                                 value={reps}
                                 onChange={e => setReps(e.target.value)}
-                                className="w-full px-3 py-2 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-center font-mono focus:ring-2 focus:ring-indigo-500 outline-none"
+                                className="w-full px-3 py-2 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-center font-mono focus:ring-2 focus:accent-ring outline-none"
                                 placeholder="0"
                             />
                         </div>
                         <button 
                             type="submit"
                             disabled={!weight || !reps}
-                            className="bg-indigo-600 disabled:bg-zinc-300 dark:disabled:bg-zinc-700 text-white p-2.5 rounded-lg hover:bg-indigo-700 transition-colors"
+                            className="accent-bg disabled:bg-zinc-300 dark:disabled:bg-zinc-700 text-white p-2.5 rounded-lg hover:accent-bg-hover transition-colors"
                         >
                             <Plus size={20} />
                         </button>
@@ -231,7 +231,7 @@ const ExerciseStatsModal: React.FC<{
             <div className="bg-white dark:bg-zinc-900 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
                 <div className="p-4 border-b border-zinc-100 dark:border-zinc-800 flex justify-between items-center bg-zinc-50 dark:bg-zinc-900">
                     <h3 className="font-bold text-zinc-800 dark:text-zinc-100 flex items-center gap-2">
-                        <TrendingUp size={18} className="text-indigo-600" />
+                        <TrendingUp size={18} className="accent-text" />
                         {exercise.name} {t('history')}
                     </h3>
                     <button onClick={onClose} className="p-1 text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-full">
@@ -530,7 +530,7 @@ export const GymTracker: React.FC<GymTrackerProps> = ({ exercises, workoutLogs, 
                     <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 p-2 flex items-center justify-between shadow-sm">
                         <button 
                             onClick={() => setWeekOffset(prev => prev - 1)}
-                            className="p-2 text-zinc-400 hover:text-indigo-600 dark:text-zinc-500 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-zinc-800 rounded-lg transition-colors"
+                            className="p-2 text-zinc-400 hover:accent-text dark:text-zinc-500 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-zinc-800 rounded-lg transition-colors"
                         >
                             <ChevronLeft size={20} />
                         </button>
@@ -540,7 +540,7 @@ export const GymTracker: React.FC<GymTrackerProps> = ({ exercises, workoutLogs, 
                             {weekOffset !== 0 && (
                                 <button 
                                     onClick={() => setWeekOffset(0)}
-                                    className="text-[10px] text-indigo-500 dark:text-indigo-400 font-medium flex items-center gap-1 mt-0.5 hover:underline"
+                                    className="text-[10px] accent-text dark:accent-text font-medium flex items-center gap-1 mt-0.5 hover:underline"
                                 >
                                     <RotateCcw size={10} /> {language === 'pl' ? 'Wróć' : 'Back'}
                                 </button>
@@ -549,7 +549,7 @@ export const GymTracker: React.FC<GymTrackerProps> = ({ exercises, workoutLogs, 
 
                         <button 
                             onClick={() => setWeekOffset(prev => prev + 1)}
-                            className="p-2 text-zinc-400 hover:text-indigo-600 dark:text-zinc-500 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-zinc-800 rounded-lg transition-colors"
+                            className="p-2 text-zinc-400 hover:accent-text dark:text-zinc-500 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-zinc-800 rounded-lg transition-colors"
                         >
                             <ChevronRight size={20} />
                         </button>
@@ -592,7 +592,7 @@ export const GymTracker: React.FC<GymTrackerProps> = ({ exercises, workoutLogs, 
                         setNewExerciseDay(selectedDay);
                         setIsAddingExercise(true);
                     }}
-                    className="w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white py-3 rounded-xl font-medium transition-colors shadow-sm shadow-indigo-200 dark:shadow-none text-sm"
+                    className="w-full flex items-center justify-center gap-2 accent-bg hover:accent-bg-hover dark:accent-bg text-white py-3 rounded-xl font-medium transition-colors shadow-sm accent-shadow dark:shadow-none text-sm"
                 >
                     <Plus size={18} />
                     <span>{t('add_new')}</span>
@@ -600,7 +600,7 @@ export const GymTracker: React.FC<GymTrackerProps> = ({ exercises, workoutLogs, 
             )}
 
             {isAddingExercise && (
-                <div className="bg-white dark:bg-zinc-900 rounded-xl p-5 border border-indigo-100 dark:border-indigo-900 shadow-lg animate-in fade-in slide-in-from-top-4">
+                <div className="bg-white dark:bg-zinc-900 rounded-xl p-5 border accent-border dark:border-indigo-900 shadow-lg animate-in fade-in slide-in-from-top-4">
                     <div className="flex justify-between items-center mb-4">
                         <h3 className="font-semibold text-zinc-800 dark:text-zinc-100">{t('add_exercise_to')} {t('short_' + newExerciseDay)}</h3>
                         <button onClick={() => setIsAddingExercise(false)} className="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300">
@@ -650,7 +650,7 @@ export const GymTracker: React.FC<GymTrackerProps> = ({ exercises, workoutLogs, 
                                 />
                             </div>
                         </div>
-                        <button type="submit" className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-medium rounded-lg">
+                        <button type="submit" className="w-full py-2 accent-bg hover:accent-bg-hover dark:accent-bg text-white font-medium rounded-lg">
                             {t('save_to_plan')}
                         </button>
                     </form>
@@ -741,7 +741,7 @@ export const GymTracker: React.FC<GymTrackerProps> = ({ exercises, workoutLogs, 
                                     onClick={() => handleMeasDayClick(idx)}
                                     className={`flex-1 min-w-[3rem] py-2 rounded-lg text-sm font-semibold transition-all ${
                                         isSelected 
-                                        ? 'bg-indigo-600 text-white shadow-md' 
+                                        ? 'accent-bg text-white accent-shadow' 
                                         : 'text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200'
                                     }`}
                                 >
@@ -780,7 +780,7 @@ export const GymTracker: React.FC<GymTrackerProps> = ({ exercises, workoutLogs, 
                     <button 
                         type="submit" 
                         className={`w-full py-2.5 rounded-lg font-bold text-white transition-all ${
-                            isSavingMeasurements ? 'bg-emerald-500' : 'bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600'
+                            isSavingMeasurements ? 'bg-emerald-500' : 'accent-bg hover:accent-bg-hover dark:accent-bg dark:hover:accent-bg-hover' 
                         }`}
                     >
                          {isSavingMeasurements ? 'Saved!' : (hasDataForSelectedDate ? t('update_measurements') : t('save_measurements'))}
@@ -792,7 +792,7 @@ export const GymTracker: React.FC<GymTrackerProps> = ({ exercises, workoutLogs, 
             <div className="bg-white dark:bg-zinc-900 p-5 rounded-2xl border border-zinc-100 dark:border-zinc-800 shadow-sm transition-colors">
                 <div className="flex items-center justify-between mb-4">
                     <h3 className="font-semibold text-zinc-800 dark:text-zinc-100 flex items-center gap-2">
-                        <LineChart size={18} className="text-indigo-500"/>
+                        <LineChart size={18} className="accent-text"/>
                         {t('progress_chart')}
                     </h3>
                     <select 

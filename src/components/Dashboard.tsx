@@ -101,19 +101,19 @@ export const Dashboard: React.FC<DashboardProps> = ({ habits, logs, exercises, w
         </div>
         <div className="w-full bg-zinc-100 dark:bg-zinc-800 rounded-full h-3 overflow-hidden">
           <div 
-            className="bg-indigo-600 dark:bg-indigo-500 h-full rounded-full transition-all duration-500 ease-out"
+            className="accent-bg h-full rounded-full transition-all duration-500 ease-out"
             style={{ width: `${progress}%` }}
           />
         </div>
       </div>
 
       {/* AI Insight Button/Card */}
-      <div className="bg-indigo-50 dark:bg-zinc-900 rounded-xl p-4 border border-indigo-100 dark:border-zinc-800 dark:shadow-md dark:shadow-black/20 transition-colors">
+      <div className="accent-soft dark:bg-zinc-900 rounded-xl p-4 border accent-border dark:border-zinc-800 dark:shadow-md dark:shadow-black/20 transition-colors">
          {!insight ? (
             <button 
                 onClick={handleGetInsight}
                 disabled={loadingInsight}
-                className="w-full flex items-center justify-center gap-2 text-indigo-700 dark:text-indigo-300 font-medium hover:bg-indigo-100 dark:hover:bg-zinc-800 p-2 rounded-lg transition-colors"
+                className="w-full flex items-center justify-center gap-2 accent-text dark:accent-text font-medium hover:accent-soft dark:hover:bg-zinc-800 p-2 rounded-lg transition-colors"
             >
                 <Sparkles size={18} className={loadingInsight ? "animate-spin" : ""} />
                 {loadingInsight ? t('insight_loading') : t('insight_btn')}
@@ -123,10 +123,10 @@ export const Dashboard: React.FC<DashboardProps> = ({ habits, logs, exercises, w
                  <div className="flex items-start gap-3">
                     <Sparkles size={20} className="accent-text dark:accent-text mt-1 shrink-0" />
                     <div>
-                        <p className="text-indigo-900 dark:text-indigo-100 text-sm leading-relaxed">{insight}</p>
+                        <p className="accent-text dark:accent-text text-sm leading-relaxed">{insight}</p>
                         <button 
                             onClick={() => setInsight(null)}
-                            className="text-xs text-indigo-500 dark:text-indigo-400 mt-2 hover:underline"
+                            className="text-xs accent-text dark:accent-text mt-2 hover:underline"
                         >
                             {t('close')}
                         </button>
@@ -163,7 +163,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ habits, logs, exercises, w
                                      <p className="text-xs text-zinc-500 dark:text-zinc-400">{exercise.targetSets} sets • {exercise.targetReps} reps</p>
                                  </div>
                              </div>
-                             <div className="flex items-center text-indigo-600 dark:text-indigo-400 text-xs font-bold gap-1">
+                             <div className="flex items-center accent-text dark:accent-text text-xs font-bold gap-1">
                                  {isDone ? t('edit') : t('log')} <ChevronRight size={14} />
                              </div>
                           </div>
@@ -175,7 +175,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ habits, logs, exercises, w
 
       <div className="space-y-3">
         <h3 className="font-bold text-zinc-800 dark:text-zinc-100 flex items-center gap-2">
-            <Check size={20} className="text-indigo-600 dark:text-indigo-400"/> 
+            <Check size={20} className="accent-text dark:accent-text"/> 
             {t('nav_habits')}
         </h3>
         {habits.length === 0 ? (

@@ -88,7 +88,7 @@ export const Statistics: React.FC<StatisticsProps> = ({ habits, logs }) => {
       <div className="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-zinc-100 dark:border-zinc-800 shadow-sm min-h-[400px] transition-colors">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
             <h3 className="font-semibold text-zinc-700 dark:text-zinc-200 flex items-center gap-2">
-                <CalendarCheck size={18} className="text-indigo-500 dark:text-indigo-400"/>
+                <CalendarCheck size={18} className="accent-text dark:accent-text"/>
                 {t('history')}
             </h3>
             

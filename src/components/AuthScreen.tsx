@@ -38,7 +38,7 @@ export const AuthScreen: React.FC = () => {
         
         {/* Header / Logo */}
         <div className="text-center mb-8">
-            <div className="w-16 h-16 accent-soft rounded-2xl mx-auto flex items-center justify-center shadow-[0_20px_60px_-15px_rgba(79,70,229,0.6)] dark:shadow-[0_20px_60px_-15px_rgba(79,70,229,0.5)] mb-6 transform transition-transform hover:scale-105">
+            <div className="w-16 h-16 accent-bg rounded-2xl mx-auto flex items-center justify-center shadow-[0_20px_60px_-15px_rgba(79,70,229,0.6)] dark:shadow-[0_20px_60px_-15px_rgba(79,70,229,0.5)] mb-6 transform transition-transform hover:scale-105">
                 <span className="text-3xl font-bold text-white">H</span>
             </div>
             <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-2">
@@ -94,7 +94,7 @@ export const AuthScreen: React.FC = () => {
                 <button 
                     type="submit" 
                     disabled={loading}
-                    className="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg shadow-indigo-200 dark:shadow-none transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed mt-2"
+                    className="w-full py-3.5 accent-bg hover:accent-bg-hover text-white font-bold rounded-xl shadow-lg accent-shadow dark:shadow-none transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed mt-2"
                 >
                     {loading ? (
                         <Loader2 className="animate-spin" size={20} />
