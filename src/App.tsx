@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ViewState, Habit, DailyLog, Exercise, WorkoutLog, BodyMeasurement } from './types';
 import { getHabits, getLogs, getExercises, getWorkoutLogs, getMeasurements } from './services/storage';
@@ -127,7 +126,8 @@ const App: React.FC = () => {
   const [configured, setConfigured] = useState(checkIsConfigured());
 
   const handleConfigDone = () => {
-    window.location.reload();
+      // Manual reload trigger to refresh Firebase singleton exports
+      window.location.reload();
   };
 
   return (
@@ -140,3 +140,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+
