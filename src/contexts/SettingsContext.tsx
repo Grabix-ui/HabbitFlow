@@ -286,17 +286,37 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [accentColor, setAccentColor] = useState<AccentColor>(() => {
     return (localStorage.getItem('habitflow_accent') as AccentColor) || 'indigo';
   });
+useEffect(() => {
+  localStorage.setItem('habitflow_theme', theme);
 
-  useEffect(() => {
-    localStorage.setItem('habitflow_theme', theme);
-    const root = window.document.documentElement;
-    
-    if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-  }, [theme]);
+  const root = document.documentElement;
+  const body = document.body;
+  const mq = window.matchMedia('(prefers-color-scheme: dark)');
+
+  const apply = () => {
+    const isDark =
+      theme === 'dark' ||
+      (theme === 'system' && mq.matches);
+
+    root.classList.toggle('dark', isDark);
+    body.classList.toggle('dark', isDark);
+  };
+
+  apply();
+
+  // gdy theme = system i user zmieni motyw w systemie, apka ma reagowac
+  const handler = () => {
+    if (theme === 'system') apply();
+  };
+
+  if (mq.addEventListener) mq.addEventListener('change', handler);
+  else mq.addListener(handler); // starsze Safari
+
+  return () => {
+    if (mq.removeEventListener) mq.removeEventListener('change', handler);
+    else mq.removeListener(handler);
+  };
+}, [theme]);
 
   useEffect(() => {
     localStorage.setItem('habitflow_lang', language);
