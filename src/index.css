@@ -19,16 +19,32 @@ body {
   --accent-border: #c7d2fe;
 }
 
+/* Dark-mode friendly fallbacks for the default (indigo) */
+.dark {
+  --accent-soft: rgba(99,102,241,0.08);
+  --accent-border: rgba(99,102,241,0.16);
+}
+
 .theme-emerald { --accent: #059669; --accent-soft: #ecfdf5; --accent-border: #a7f3d0; }
+.dark.theme-emerald, .theme-emerald.dark { --accent-soft: rgba(5,150,105,0.12); --accent-border: rgba(5,150,105,0.24); }
+
 .theme-sky     { --accent: #0284c7; --accent-soft: #e0f2fe; --accent-border: #bae6fd; }
+.dark.theme-sky, .theme-sky.dark { --accent-soft: rgba(2,132,199,0.12); --accent-border: rgba(2,132,199,0.24); }
+
 .theme-violet  { --accent: #7c3aed; --accent-soft: #f3e8ff; --accent-border: #ddd6fe; }
+.dark.theme-violet, .theme-violet.dark { --accent-soft: rgba(124,58,237,0.12); --accent-border: rgba(124,58,237,0.22); }
+
 .theme-rose    { --accent: #e11d48; --accent-soft: #ffe4e6; --accent-border: #fecdd3; }
+.dark.theme-rose, .theme-rose.dark { --accent-soft: rgba(225,29,72,0.12); --accent-border: rgba(225,29,72,0.22); }
+
 .theme-amber   { --accent: #d97706; --accent-soft: #fffbeb; --accent-border: #fde68a; }
+.dark.theme-amber, .theme-amber.dark { --accent-soft: rgba(217,119,6,0.12); --accent-border: rgba(217,119,6,0.22); }
 
 /* proste “utility” klasy */
 .accent-bg { background-color: var(--accent); }
 .accent-text { color: var(--accent); }
-.accent-soft { background-color: var(--accent-soft); }
+/* soft accent now also has a subtle border so it won't look like a bright white tile in dark mode */
+.accent-soft { background-color: var(--accent-soft); border: 1px solid var(--accent-border); border-radius: 0.75rem; }
 .accent-border { border-color: var(--accent-border); }
 
 /* Aliases for existing Indigo-centric classes to map to accent variables
