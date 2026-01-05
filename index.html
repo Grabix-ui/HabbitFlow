@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>HabitFlow</title>
     
-    <!-- Rozwiązanie problemu favicon: brak ikony bez błędu 404 -->
+    <!-- Pusty favicon zapobiegający błędowi 404 w konsoli -->
     <link rel="icon" href="data:,">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -38,7 +38,7 @@
 </head>
 <body class="bg-zinc-50 dark:bg-black transition-colors duration-300">
     <div id="root"></div>
-    <!-- Vite potrzebuje ścieżki od roota projektu (/), aby poprawnie przetworzyć plik podczas budowania -->
-    <script type="module" src="/index.tsx"></script>
+    <!-- Kluczowa zmiana: użycie ./ zamiast / dla poprawnej ścieżki relatywnej -->
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>
