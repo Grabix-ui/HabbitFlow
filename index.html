@@ -1,24 +1,17 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>HabitFlow</title>
+    <title>HabbitFlow</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Usunięto / przed index.css -->
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./index.css">
     <style>
       .pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
       body { -webkit-tap-highlight-color: transparent; height: 100%; }
       :root { color-scheme: light; }
       .dark { color-scheme: dark; }
-      
-      /* Stylizacja dla scrollbara */
-      ::-webkit-scrollbar { width: 6px; height: 6px; }
-      ::-webkit-scrollbar-track { background: transparent; }
-      ::-webkit-scrollbar-thumb { background-color: #d4d4d8; border-radius: 3px; }
-      .dark ::-webkit-scrollbar-thumb { background-color: #3f3f46; }
     </style>
 <script type="importmap">
 {
@@ -39,8 +32,8 @@
 </head>
 <body class="bg-zinc-50 dark:bg-black transition-colors duration-300">
     <div id="root"></div>
-    <!-- Usunięto / przed index.tsx - to pozwoli Vite i GitHub Pages znaleźć plik -->
-    <script type="module" src="index.tsx"></script>
+    <!-- Vite zamieni ten plik .tsx na działający .js podczas budowania na GitHubie -->
+    <script type="module" src="./index.tsx"></script>
 <script type="module" src="/index.tsx"></script>
 </body>
 </html>

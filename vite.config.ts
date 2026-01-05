@@ -4,8 +4,8 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  // base: './' sprawia, że ścieżki w zbudowanej aplikacji są relatywne
-  base: './', 
+  // WAŻNE: To musi pasować DOKŁADNIE do nazwy Twojego repozytorium na GitHubie
+  base: '/HabbitFlow/', 
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
