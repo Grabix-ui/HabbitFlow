@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>HabitFlow</title>
     
-    <!-- Zapobieganie błędom 404 dla favicon -->
+    <!-- Rozwiązanie problemu favicon: brak ikony bez błędu 404 -->
     <link rel="icon" href="data:,">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,7 +15,6 @@
       :root { color-scheme: light; }
       .dark { color-scheme: dark; }
       
-      /* Stylizacja scrollbara */
       ::-webkit-scrollbar { width: 6px; height: 6px; }
       ::-webkit-scrollbar-track { background: transparent; }
       ::-webkit-scrollbar-thumb { background-color: #d4d4d8; border-radius: 3px; }
@@ -39,7 +38,7 @@
 </head>
 <body class="bg-zinc-50 dark:bg-black transition-colors duration-300">
     <div id="root"></div>
-    <!-- Vite automatycznie obsłuży ten plik i zamieni go na zbudowany JS -->
+    <!-- Vite potrzebuje ścieżki od roota projektu (/), aby poprawnie przetworzyć plik podczas budowania -->
     <script type="module" src="/index.tsx"></script>
 </body>
 </html>
